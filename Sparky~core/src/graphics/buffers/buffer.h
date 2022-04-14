@@ -10,6 +10,7 @@ namespace sparky { namespace graphics {
 		GLuint m_ComponentCount; // to tell the attribute 
 	public:
 		Buffer(GLfloat* data, GLsizei count, GLuint componentCount);
+		~Buffer();
 		void bind() const;
 		void unbind() const;
 
