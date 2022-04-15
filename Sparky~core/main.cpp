@@ -53,16 +53,16 @@ int main()
 
 	TileLayer layer2(&shader2);
 	layer2.add(new Sprite(-2, -2, 4, 4, maths::vec4(1, 0, 1, 1)));
+	Sprite sprite2(7, 1, 2, 3, maths::vec4(0.2f, 0, 1, 1));
+	BatchRenderer2D renderer;
+#else
+	StaticSprite sprite(5, 5, 4, 4, maths::vec4(1, 0, 1, 1), shader);
+	StaticSprite sprite2(7, 1, 2, 3, maths::vec4(0.2f, 0, 1, 1), shader);
+	Simple2DRenderer renderer;
+#endif
 
-	Timer time;
-	float timer = 0;
-	unsigned int frames = 0;
-
-	while (!window.closed())
-	{
-		window.clear();
-		double x, y;
-		window.getMousePosition(x, y);
+	shader.setUniform2f("light_pos", vec2(4.0f, 1.5f));
+	shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
 		
 		shader.enable();
 		//shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
@@ -74,6 +74,26 @@ int main()
 		layer.render();
 		layer2.render();
 
+		renderer.begin();
+#endif
+		for (int i = 0; i < sprites.size(); i++)
+		{
+			renderer.submit(sprites[i]);
+		}
+#if BATCH_RENDERER
+		renderer.end();
+#endif
+		renderer.flush();
+		renderer.begin();
+#endif
+		for (int i = 0; i < sprites.size(); i++)
+		{
+			renderer.submit(sprites[i]);
+		}
+#if BATCH_RENDERER
+		renderer.end();
+#endif
+		renderer.flush();
 		window.update();
 		frames++;
 		if (time.elapsed() - timer > 1.0f) {
