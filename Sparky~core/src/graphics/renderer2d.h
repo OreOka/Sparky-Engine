@@ -1,15 +1,17 @@
 #pragma once
 
+#include <vector>
 #include <GL/glew.h>
 #include "../maths/maths.h"
-#include "renderable2d.h"
 
 namespace sparky { namespace graphics {
+
+	class Renderable2D;
 
 	class Renderer2D
 	{
 	protected:
-		std::vector<maths::mat4> m_TransformationStack;
+		std::vector<const maths::mat4> m_TransformationStack;
 		const maths::mat4* m_TransformationBack;
 	protected:
 		Renderer2D()
@@ -29,15 +31,15 @@ namespace sparky { namespace graphics {
 
 			m_TransformationBack = &m_TransformationStack.back();
 		}
-
 		void pop()
 		{
-			//TODO: Add to log!
+			// TODO: Add to log!
 			if (m_TransformationStack.size() > 1)
 				m_TransformationStack.pop_back();
 
 			m_TransformationBack = &m_TransformationStack.back();
 		}
+
 		virtual void begin() {}
 		virtual void submit(const Renderable2D* renderable) = 0;
 		virtual void end() {}

@@ -1,9 +1,9 @@
 #include "layer.h"
 
-
 namespace sparky { namespace graphics {
+
 	Layer::Layer(Renderer2D* renderer, Shader* shader, maths::mat4 projectionMatrix)
-		:m_Renderer(renderer), m_Shader(shader), m_ProjectionMatrix(projectionMatrix)
+		: m_Renderer(renderer), m_Shader(shader), m_ProjectionMatrix(projectionMatrix)
 	{
 		m_Shader->enable();
 		m_Shader->setUniformMat4("pr_matrix", m_ProjectionMatrix);
@@ -30,10 +30,10 @@ namespace sparky { namespace graphics {
 		m_Renderer->begin();
 
 		for (const Renderable2D* renderable : m_Renderables)
-			m_Renderer->submit(renderable);
+			renderable->submit(m_Renderer);
 
 		m_Renderer->end();
 		m_Renderer->flush();
 	}
 
-}}
+} }
