@@ -3,8 +3,6 @@
 #include "../renderer2d.h"
 #include "../renderable2d.h"
 
-
-
 namespace sparky { namespace graphics {
 
 	class Layer
@@ -22,4 +20,4 @@ namespace sparky { namespace graphics {
 		virtual void render();
 	};
 
-}}
+} }

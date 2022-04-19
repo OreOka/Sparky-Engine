@@ -72,8 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\GLEW\libs;$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\FreeImage\lib;$(SolutionDir)Dependencies\GLEW\libs;$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Configuration)\Intermediates\</IntDir>
   </PropertyGroup>
@@ -101,7 +101,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -199,6 +199,9 @@
   <ItemGroup>
     <None Include="src\shaders\basic.frag" />
     <None Include="src\shaders\basic.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="test.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

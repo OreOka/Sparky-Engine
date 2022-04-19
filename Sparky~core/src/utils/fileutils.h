@@ -1,10 +1,15 @@
 #pragma once
 
 #include <string>
+#include <fstream>
+
 namespace sparky {
-	class FileUtils {
+
+	class FileUtils
+	{
 	public:
-		static std::string read_file(const char* filepath) {
+		static std::string read_file(const char* filepath)
+		{
 			FILE* file = fopen(filepath, "rt");
 			fseek(file, 0, SEEK_END);
 			unsigned long length = ftell(file);
@@ -18,7 +23,6 @@ namespace sparky {
 			delete[] data;
 			return result;
 		}
-
 	};
 
 }

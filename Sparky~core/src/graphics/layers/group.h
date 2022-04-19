@@ -15,4 +15,4 @@ namespace sparky { namespace graphics {
 		void submit(Renderer2D* renderer) const override;
 	};
 
-}	}
+} }

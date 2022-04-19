@@ -16,7 +16,7 @@ namespace sparky { namespace graphics {
 	{
 		renderer->push(m_TransformationMatrix);
 
-		for (const Renderable2D* renderable : m_Renderables)
+		for (Renderable2D* renderable : m_Renderables)
 			renderable->submit(renderer);
 
 		renderer->pop();

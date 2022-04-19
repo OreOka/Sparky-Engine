@@ -3,7 +3,9 @@
 #include "buffers/buffer.h"
 #include "buffers/indexbuffer.h"
 #include "buffers/vertexarray.h"
+
 #include "renderer2d.h"
+
 #include "../maths/maths.h"
 #include "shader.h"
 
@@ -12,7 +14,7 @@ namespace sparky { namespace graphics {
 	struct VertexData
 	{
 		maths::vec3 vertex;
-		//maths::vec4 color;
+		// maths::vec4 color;
 		unsigned int color;
 	};
 
@@ -22,7 +24,6 @@ namespace sparky { namespace graphics {
 		maths::vec3 m_Position;
 		maths::vec2 m_Size;
 		maths::vec4 m_Color;
-
 	protected:
 		Renderable2D() { }
 	public:
@@ -36,7 +37,7 @@ namespace sparky { namespace graphics {
 		{
 			renderer->submit(this);
 		}
-		
+
 		inline const maths::vec3& getPosition() const { return m_Position; }
 		inline const maths::vec2& getSize() const { return m_Size; }
 		inline const maths::vec4& getColor() const { return m_Color; }

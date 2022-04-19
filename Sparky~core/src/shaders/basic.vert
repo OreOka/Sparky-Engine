@@ -8,11 +8,10 @@ uniform mat4 vw_matrix = mat4(1.0);
 uniform mat4 ml_matrix = mat4(1.0);
 
 out DATA
-	{
-		vec4 position;
-		vec4 color;
-	}vs_out;
-
+{
+	vec4 position;
+	vec4 color;
+} vs_out;
 
 void main()
 {

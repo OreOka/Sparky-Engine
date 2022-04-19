@@ -1,17 +1,17 @@
 #pragma once
 
-#include <vector> 
+#include <vector>
 #include <GL/glew.h>
 
 #include "buffer.h"
 
-namespace sparky {	namespace graphics {
+namespace sparky { namespace graphics {
 
-	class VertexArray {
+	class VertexArray
+	{
 	private:
 		GLuint m_ArrayID;
 		std::vector<Buffer*> m_Buffers;
-
 	public:
 		VertexArray();
 		~VertexArray();
@@ -20,6 +20,5 @@ namespace sparky {	namespace graphics {
 		void bind() const;
 		void unbind() const;
 	};
-	
-	
-}}
+
+} }

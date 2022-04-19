@@ -2,9 +2,10 @@
 
 #include <iostream>
 
-namespace sparky  { namespace maths {
+namespace sparky { namespace maths {
 
-	struct vec3 {
+	struct vec3
+	{
 		float x, y, z;
 
 		vec3();
@@ -28,6 +29,7 @@ namespace sparky  { namespace maths {
 		vec3& operator*=(const vec3& other);
 		vec3& operator/=(const vec3& other);
 
-		friend std::ostream& operator<<(std::ostream &stream , const vec3& vector);
+		friend std::ostream& operator<<(std::ostream& stream, const vec3& vector);
 	};
+
 } }

@@ -1,4 +1,4 @@
-#include "batchrenderer2d.h"
+#include "BatchRenderer2D.h"
 
 namespace sparky { namespace graphics {
 
@@ -59,7 +59,7 @@ namespace sparky { namespace graphics {
 		const maths::vec3& position = renderable->getPosition();
 		const maths::vec2& size = renderable->getSize();
 		const maths::vec4& color = renderable->getColor();
-
+		
 		int r = color.x * 255.0f;
 		int g = color.y * 255.0f;
 		int b = color.z * 255.0f;
