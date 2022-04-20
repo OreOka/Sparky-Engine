@@ -204,6 +204,8 @@
     <None Include="src\shaders\basic.vert" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="tb.png" />
+    <Image Include="tc.png" />
     <Image Include="test.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

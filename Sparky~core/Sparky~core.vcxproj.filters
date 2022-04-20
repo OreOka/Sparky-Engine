@@ -152,5 +152,11 @@
     <Image Include="test.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="tb.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="tc.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
