@@ -2,7 +2,7 @@
 
 #include "vec3.h"
 #include "vec4.h"
-#include "maths_func.h"
+#include "math_func.h"
 
 namespace sparky { namespace maths {
 
