@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\FreeImage\lib;$(SolutionDir)Dependencies\GLEW\libs;$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Configuration)\Intermediates\</IntDir>
@@ -81,8 +81,8 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Configuration)\Intermediates\</IntDir>
-    <IncludePath>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\GLEW\libs;$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\FreeImage\lib;$(SolutionDir)Dependencies\GLEW\libs;$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -94,7 +94,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;WIN32;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
     </ClCompile>
@@ -110,7 +110,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;WIN32;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
@@ -122,7 +122,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -154,16 +154,61 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ext\freetype-gl\distance-field.c" />
+    <ClCompile Include="ext\freetype-gl\ftgl-utils.c" />
+    <ClCompile Include="ext\freetype-gl\platform.c" />
+    <ClCompile Include="ext\freetype-gl\text-buffer.c" />
+    <ClCompile Include="ext\freetype-gl\texture-atlas.c" />
+    <ClCompile Include="ext\freetype-gl\texture-font.c" />
+    <ClCompile Include="ext\freetype-gl\utf8-utils.c" />
+    <ClCompile Include="ext\freetype-gl\vector.c" />
+    <ClCompile Include="ext\freetype\src\autofit\autofit.c" />
+    <ClCompile Include="ext\freetype\src\base\ftbase.c" />
+    <ClCompile Include="ext\freetype\src\base\ftbbox.c" />
+    <ClCompile Include="ext\freetype\src\base\ftbitmap.c" />
+    <ClCompile Include="ext\freetype\src\base\ftdebug.c" />
+    <ClCompile Include="ext\freetype\src\base\ftfstype.c" />
+    <ClCompile Include="ext\freetype\src\base\ftgasp.c" />
+    <ClCompile Include="ext\freetype\src\base\ftglyph.c" />
+    <ClCompile Include="ext\freetype\src\base\ftgxval.c" />
+    <ClCompile Include="ext\freetype\src\base\ftinit.c" />
+    <ClCompile Include="ext\freetype\src\base\ftmm.c" />
+    <ClCompile Include="ext\freetype\src\base\ftotval.c" />
+    <ClCompile Include="ext\freetype\src\base\ftpatent.c" />
+    <ClCompile Include="ext\freetype\src\base\ftpfr.c" />
+    <ClCompile Include="ext\freetype\src\base\ftstroke.c" />
+    <ClCompile Include="ext\freetype\src\base\ftsynth.c" />
+    <ClCompile Include="ext\freetype\src\base\ftsystem.c" />
+    <ClCompile Include="ext\freetype\src\base\fttype1.c" />
+    <ClCompile Include="ext\freetype\src\base\ftwinfnt.c" />
+    <ClCompile Include="ext\freetype\src\bdf\bdf.c" />
+    <ClCompile Include="ext\freetype\src\cache\ftcache.c" />
+    <ClCompile Include="ext\freetype\src\cff\cff.c" />
+    <ClCompile Include="ext\freetype\src\cid\type1cid.c" />
+    <ClCompile Include="ext\freetype\src\gzip\ftgzip.c" />
+    <ClCompile Include="ext\freetype\src\lzw\ftlzw.c" />
+    <ClCompile Include="ext\freetype\src\pcf\pcf.c" />
+    <ClCompile Include="ext\freetype\src\pfr\pfr.c" />
+    <ClCompile Include="ext\freetype\src\psaux\psaux.c" />
+    <ClCompile Include="ext\freetype\src\pshinter\pshinter.c" />
+    <ClCompile Include="ext\freetype\src\psnames\psmodule.c" />
+    <ClCompile Include="ext\freetype\src\raster\raster.c" />
+    <ClCompile Include="ext\freetype\src\sfnt\sfnt.c" />
+    <ClCompile Include="ext\freetype\src\smooth\smooth.c" />
+    <ClCompile Include="ext\freetype\src\truetype\truetype.c" />
+    <ClCompile Include="ext\freetype\src\type1\type1.c" />
+    <ClCompile Include="ext\freetype\src\type42\type42.c" />
+    <ClCompile Include="ext\freetype\src\winfonts\winfnt.c" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\graphics\batchrenderer2d.cpp" />
+    <ClCompile Include="src\graphics\BatchRenderer2D.cpp" />
     <ClCompile Include="src\graphics\buffers\buffer.cpp" />
-    <ClCompile Include="src\graphics\buffers\indexBuffer.cpp" />
-    <ClCompile Include="src\graphics\buffers\vertexArray.cpp" />
+    <ClCompile Include="src\graphics\buffers\indexbuffer.cpp" />
+    <ClCompile Include="src\graphics\buffers\vertexarray.cpp" />
     <ClCompile Include="src\graphics\layers\group.cpp" />
     <ClCompile Include="src\graphics\layers\layer.cpp" />
     <ClCompile Include="src\graphics\layers\tilelayer.cpp" />
-    <ClCompile Include="src\graphics\simple2drenderer.cpp" />
     <ClCompile Include="src\graphics\shader.cpp" />
+    <ClCompile Include="src\graphics\simple2drenderer.cpp" />
     <ClCompile Include="src\graphics\sprite.cpp" />
     <ClCompile Include="src\graphics\static_sprite.cpp" />
     <ClCompile Include="src\graphics\texture.cpp" />
@@ -174,10 +219,34 @@
     <ClCompile Include="src\maths\vec4.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\graphics\batchrenderer2d.h" />
+    <Image Include="tb.png" />
+    <Image Include="tc.png" />
+    <Image Include="test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ext\freetype-gl\config.h" />
+    <ClInclude Include="ext\freetype-gl\distance-field.h" />
+    <ClInclude Include="ext\freetype-gl\freetype-gl-errdef.h" />
+    <ClInclude Include="ext\freetype-gl\freetype-gl.h" />
+    <ClInclude Include="ext\freetype-gl\ftgl-utils.h" />
+    <ClInclude Include="ext\freetype-gl\opengl.h" />
+    <ClInclude Include="ext\freetype-gl\platform.h" />
+    <ClInclude Include="ext\freetype-gl\text-buffer.h" />
+    <ClInclude Include="ext\freetype-gl\texture-atlas.h" />
+    <ClInclude Include="ext\freetype-gl\texture-font.h" />
+    <ClInclude Include="ext\freetype-gl\utf8-utils.h" />
+    <ClInclude Include="ext\freetype-gl\vec234.h" />
+    <ClInclude Include="ext\freetype-gl\vector.h" />
+    <ClInclude Include="ext\freetype\include\freetype\config\ftconfig.h" />
+    <ClInclude Include="ext\freetype\include\freetype\config\ftheader.h" />
+    <ClInclude Include="ext\freetype\include\freetype\config\ftmodule.h" />
+    <ClInclude Include="ext\freetype\include\freetype\config\ftoption.h" />
+    <ClInclude Include="ext\freetype\include\freetype\config\ftstdlib.h" />
+    <ClInclude Include="ext\freetype\include\ft2build.h" />
+    <ClInclude Include="src\graphics\BatchRenderer2D.h" />
     <ClInclude Include="src\graphics\buffers\buffer.h" />
-    <ClInclude Include="src\graphics\buffers\indexBuffer.h" />
-    <ClInclude Include="src\graphics\buffers\vertexArray.h" />
+    <ClInclude Include="src\graphics\buffers\indexbuffer.h" />
+    <ClInclude Include="src\graphics\buffers\vertexarray.h" />
     <ClInclude Include="src\graphics\layers\group.h" />
     <ClInclude Include="src\graphics\layers\layer.h" />
     <ClInclude Include="src\graphics\layers\tilelayer.h" />
@@ -198,15 +267,6 @@
     <ClInclude Include="src\utils\fileutils.h" />
     <ClInclude Include="src\utils\ImageLoad.h" />
     <ClInclude Include="src\utils\timer.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\shaders\basic.frag" />
-    <None Include="src\shaders\basic.vert" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="tb.png" />
-    <Image Include="tc.png" />
-    <Image Include="test.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
