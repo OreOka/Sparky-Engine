@@ -153,16 +153,10 @@
     <ClCompile Include="src\maths\vec4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\freetype-gl\distance-field.c">
-      <Filter>Source Files\ext\freetype-gl</Filter>
-    </ClCompile>
     <ClCompile Include="ext\freetype-gl\ftgl-utils.c">
       <Filter>Source Files\ext\freetype-gl</Filter>
     </ClCompile>
     <ClCompile Include="ext\freetype-gl\platform.c">
-      <Filter>Source Files\ext\freetype-gl</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype-gl\text-buffer.c">
       <Filter>Source Files\ext\freetype-gl</Filter>
     </ClCompile>
     <ClCompile Include="ext\freetype-gl\texture-atlas.c">
@@ -224,6 +218,12 @@
     </ClCompile>
     <ClCompile Include="ext\freetype\src\smooth\smooth.c">
       <Filter>Source Files\ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype-gl\distance-field.c">
+      <Filter>Source Files\ext\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype-gl\edtaa3func.c">
+      <Filter>Source Files\ext\freetype-gl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -328,16 +328,7 @@
     <ClInclude Include="src\utils\timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\freetype-gl\distance-field.h">
-      <Filter>Header Files\ext\freetype-gl</Filter>
-    </ClInclude>
     <ClInclude Include="ext\freetype-gl\freetype-gl.h">
-      <Filter>Header Files\ext\freetype-gl</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\freetype-gl\freetype-gl-errdef.h">
-      <Filter>Header Files\ext\freetype-gl</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\freetype-gl\ftgl-utils.h">
       <Filter>Header Files\ext\freetype-gl</Filter>
     </ClInclude>
     <ClInclude Include="ext\freetype-gl\opengl.h">
@@ -346,16 +337,10 @@
     <ClInclude Include="ext\freetype-gl\platform.h">
       <Filter>Header Files\ext\freetype-gl</Filter>
     </ClInclude>
-    <ClInclude Include="ext\freetype-gl\text-buffer.h">
-      <Filter>Header Files\ext\freetype-gl</Filter>
-    </ClInclude>
     <ClInclude Include="ext\freetype-gl\texture-atlas.h">
       <Filter>Header Files\ext\freetype-gl</Filter>
     </ClInclude>
     <ClInclude Include="ext\freetype-gl\texture-font.h">
-      <Filter>Header Files\ext\freetype-gl</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\freetype-gl\utf8-utils.h">
       <Filter>Header Files\ext\freetype-gl</Filter>
     </ClInclude>
     <ClInclude Include="ext\freetype-gl\vec234.h">
@@ -365,6 +350,9 @@
       <Filter>Header Files\ext\freetype-gl</Filter>
     </ClInclude>
     <ClInclude Include="ext\freetype-gl\config.h">
+      <Filter>Header Files\ext\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype-gl\edtaa3func.h">
       <Filter>Header Files\ext\freetype-gl</Filter>
     </ClInclude>
   </ItemGroup>

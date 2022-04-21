@@ -93,7 +93,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;WIN32;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
@@ -109,7 +109,7 @@
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;WIN32;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
@@ -155,9 +155,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ext\freetype-gl\distance-field.c" />
+    <ClCompile Include="ext\freetype-gl\edtaa3func.c" />
     <ClCompile Include="ext\freetype-gl\ftgl-utils.c" />
     <ClCompile Include="ext\freetype-gl\platform.c" />
-    <ClCompile Include="ext\freetype-gl\text-buffer.c" />
     <ClCompile Include="ext\freetype-gl\texture-atlas.c" />
     <ClCompile Include="ext\freetype-gl\texture-font.c" />
     <ClCompile Include="ext\freetype-gl\utf8-utils.c" />
@@ -225,16 +225,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\freetype-gl\config.h" />
-    <ClInclude Include="ext\freetype-gl\distance-field.h" />
-    <ClInclude Include="ext\freetype-gl\freetype-gl-errdef.h" />
+    <ClInclude Include="ext\freetype-gl\edtaa3func.h" />
     <ClInclude Include="ext\freetype-gl\freetype-gl.h" />
-    <ClInclude Include="ext\freetype-gl\ftgl-utils.h" />
     <ClInclude Include="ext\freetype-gl\opengl.h" />
     <ClInclude Include="ext\freetype-gl\platform.h" />
-    <ClInclude Include="ext\freetype-gl\text-buffer.h" />
     <ClInclude Include="ext\freetype-gl\texture-atlas.h" />
     <ClInclude Include="ext\freetype-gl\texture-font.h" />
-    <ClInclude Include="ext\freetype-gl\utf8-utils.h" />
     <ClInclude Include="ext\freetype-gl\vec234.h" />
     <ClInclude Include="ext\freetype-gl\vector.h" />
     <ClInclude Include="ext\freetype\include\freetype\config\ftconfig.h" />
